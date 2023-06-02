@@ -107,22 +107,30 @@
   width: 58vb;
 }
 
+.skimodel {
+  position: relative;
+}
+
+.skimodel:hover {
+  cursor: pointer;
+}
+
 .skimodel>img {
   width: 52vb;
   height: 52vh;
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
-#ski2>img {
-  width: 52vb;
-  height: 52vh;
+.skimodel:hover img {
+    visibility:hidden;
+    opacity: 0;
 }
 
-#ski3>img {
-  width: 52vb;
-  height: 52vh;
-}
-
-#ski4>img {
-  width: 52vb;
-  height: 52vh;
+.skimodel:hover div {
+  visibility: visible;
+  opacity: 1;
 }
