@@ -121,8 +121,6 @@
   position: absolute;
   opacity: 1;
   visibility: visible;
-  -webkit-transition: visibility 0s, opacity 0.5s linear;
-  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .skimodel:hover img {
