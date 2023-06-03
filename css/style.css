@@ -146,9 +146,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  background-color: transparent;
+  background-color: black;
   border: none;
-  color: #000;
+  color: white;
   cursor: pointer;
   font-size: 25px;
   padding: 20px 20px;
@@ -156,3 +156,13 @@
   text-decoration: none;
 }
 
+#kontakt {
+  text-align: center;
+}
+
+.btn-submit {
+  height: 30px;
+  width: 192px;
+  background-color: #000000;
+  color: white;
+}
