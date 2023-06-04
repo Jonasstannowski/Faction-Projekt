@@ -93,6 +93,7 @@
 
 .ski {
   display: grid;
+  column-gap: 430px  !important;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
 }
@@ -164,4 +165,13 @@
   width: 192px;
   background-color: #000000;
   color: white;
+}
+
+.btn-addtocart {
+
+    background-color: #000000;
+    color: white;
+}
+.skimodel>div>p {
+  font-size: small;
 }
