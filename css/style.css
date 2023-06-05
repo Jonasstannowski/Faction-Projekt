@@ -179,3 +179,12 @@
 .skimodel>div>p {
   font-size: small;
 }
+
+.headline{
+  font-size: 60px;
+  text-decoration: underline;
+}
+
+.überuns-headline{
+  font-size: 30px;
+}
