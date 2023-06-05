@@ -8,19 +8,18 @@ function init() {
 	console.log(db);
 	db.transaction(tabelleErzeugen);
 	setDefaultDate();
-	db.transaction(getAllBewertungen);
+	db.transaction(getAllRezensionen);
 }
 
 function tabelleErzeugen(tx) {
-    tx.executeSql("CREATE TABLE IF NOT EXISTS Rezension (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Modell VARCHAR (20), Benutzername VARCHAR(45) NOT NULL, Beschreibung TEXT)", [], SQLSuccess, SQLFail);
+    tx.executeSql("CREATE TABLE IF NOT EXISTS Rezensionen (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Modell VARCHAR (20), Benutzername VARCHAR(45) NOT NULL, Beschreibung TEXT)", [], SQLSuccess, SQLFail);
 }
 
 
 function saveData() {
-	db.transaction(addRezension);
+	db.transaction(addRezensionen);
 
 }
-
 
 function SQLSuccess(){
     console.log("Success");
@@ -40,10 +39,10 @@ function openDB(){
 }
 
 function dropTable(tx) {
-   tx.executeSql("DROP TABLE IF EXISTS Bewertungen", [], SQLSuccess, SQLFail);
+   tx.executeSql("DROP TABLE IF EXISTS Rezensionenget", [], SQLSuccess, SQLFail);
 }
 
-function addRezension(tx) {
+function addRezensionen(tx) {
 	let ModellInput = document.getElementById("Modell");
     let BenutzernameInput = document.getElementById( "Benutzername");
     let Modell = ModellInput.value;
@@ -57,14 +56,14 @@ function addRezension(tx) {
         return;
 	}
 
-	tx.executeSql("INSERT INTO Bewertungen (Modell, Benutzername, Datum, Qualitaet, Beschreibung) VALUES (?,?,?,?,?)", [Modell, Benutzername, Datum, Qualitaet, Beschreibung], getAllBewertungen, SQLFail);
+	tx.executeSql("INSERT INTO Rezensionen (Modell, Benutzername, Beschreibung) VALUES (?,?,?)", [Modell, Benutzername, Beschreibung], getAllRezensionen, SQLFail);
 	clearFields();
-    alert("Rezension veröffentlicht!")
+    alert("Rezensionen gespeichert!")
 }
 
 
-function getAllBewertungen(tx){
-	tx.executeSql("SELECT * FROM Bewertungen", [], displayResults, SQLFail);
+function getAllRezensionen(tx){
+	tx.executeSql("SELECT * FROM Rezensionen", [], displayResults, SQLFail);
 }
 
 function displayResults(tx, results){
