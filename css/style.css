@@ -244,4 +244,11 @@
 
 .row {
   align-items: space-evenly;
+  width: 100%;
+  margin: 0;
+}
+
+#btnbestellen {
+  width: 60px;
+  height: 20px;
 }
