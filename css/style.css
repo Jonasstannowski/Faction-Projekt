@@ -95,7 +95,7 @@
 }
 
 .ski {
-  display: grid;
+  display: flex;
 }
 
 .ski>div {
@@ -191,6 +191,7 @@
   height: 200px;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
+  margin: 0;
 }
 
 .flip-card-inner {
@@ -239,4 +240,8 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.row {
+  align-items: space-evenly;
 }
