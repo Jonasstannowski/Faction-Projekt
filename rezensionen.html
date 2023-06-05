@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Headphones.de</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" type ="text/css" href="css/style.css"> <!-- keine ahnung ob da richtig referiert-->
+      <link rel="stylesheet" type ="text/css" href="css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="menu">
+        <ul>
+          <a class="navbar-brand" href="index.html">
+            <img src="images/icon.webp" height="30" alt="">
+          </a>
+          
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="rezensionen.html">Rezensionen</a></li>
+          <li><a href="meinekopfhoerer.html">Meine Kopfhörer </a></li>
+          <li><a href="inear.html">In Ear</a></li>
+          <li><a href="onear.html">On Ear</a></li>
+          <li><a href="overear.html">Over Ear</a></li>
+          <li><a href="kopfhoererlexikon.html">Kopfhörerlexikon</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+
+
+
+    <main>
+      <div class="container-fluid p-4">
+        <div class="row">
+        <div class="col-12">
+          <div class="card w-100">
+            <h5 class="card-header text-center">Neue Rezension anlegen</h5>
+            <fieldset id="fieldset" class="card-body">
+                <div class="form-group p-1"><label for="titel">Modellbezeichnung:</label>
+                <input type="text" class="form-control" name="Name" id="Name"></div>
+                <div class="form-group p-1"><label for="Hersteller">Hersteller:</label>
+                <input type="text" class="form-control" name="Hersteller" id="Hersteller" required="required"></div>
+                <div class="form-group p-1"><label for="Datum">Erwerbsdatum:</label>
+                <input type="date" class="form-control" id="Datum" required="required"></div>
+                <div class="form-group p-1"><label for="Qualitaet">Sound-Qualität: <span id="bewertungAnzeige" class="ml-2"></span></label>
+                <input type="range" min="0" max="100" class="form-control" name="Qualitaet" id="Qualitaet"></div>
+                <div class="form-group p-1"><label for="titel">Beschreibung:</label>
+                <textarea class="form-control" name="Beschreibung" id="Beschreibung"></textarea></div>
+                
+                
+                <div class="form-group pt-3 d-flex justify-content-evenly">
+                  <button class="btn btn-primary m-2" id="btn_save_data">Rezension veröffentlichen</button>
+                  <button class="btn btn-secondary m-2" id="btn_clear_fields">Eingabefelder leeren</button>
+                  <button class="btn btn-danger m-2" id="btn_delete_db">Alle Rezensionen löschen</button>
+                </div>
+                <div class="form-group pt-3 text-center">
+                  <a class="btn btn-primary m-2 btn-lg" id="btn_delete_db" href="meinekopfhoerer.html">Meine Kopfhörer anzeigen</a>
+                </div>
+
+            </fieldset>
+          </div>
+        </div>
+        </div>
+        
+        
+        <div class="row">
+        <div class="col-12">
+          <h1>Letzte Rezension</h1>
+        </div>
+        </div>
+        
+        <div class="row">
+        <div class="col-12 table-responsive pb-4">
+          <table class="table table-striped table-hover table-sm ">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Hersteller</td>
+                <td>Erwerbsdatum</td>
+                <td>Qualität</td>
+                <td>Beschreibung</td>
+                <td>Aktionen</td>
+              </tr>
+            </thead>
+            <tbody id="table-content">
+              <!-- Wird dynamisch mit JS befüllt -->
+            </tbody>
+          </table>
+        </div> 
+      </div>
+      
+    </main>
+
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer">
+        <a href="impressum.html">Impressum</a>
+        |
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </footer>
+
+  </body>
+
+<script src="js/script.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</html>
