@@ -179,6 +179,15 @@
   font-size: small;
 }
 
+.headline{
+  font-size: 60px;
+  text-decoration: underline;
+}
+
+.überuns-headline{
+  font-size: 30px;
+}
+
 .flip-card {
   background-color: transparent;
   width: 300px;
