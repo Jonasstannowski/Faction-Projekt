@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <title>Headphones.de</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" type ="text/css" href="css/style.css"> <!-- keine ahnung ob da richtig referiert-->
-      <link rel="stylesheet" type ="text/css" href="css/bootstrap.min.css">
-  </head>
-
-  <body>
-    <header>
-      <nav class="menu">
-        <ul>
-          <a class="navbar-brand" href="index.html">
-            <img src="images/icon.webp" height="30" alt="">
-          </a>
-          
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="rezensionen.html">Rezensionen</a></li>
-          <li><a href="meinekopfhoerer.html">Meine Kopfhörer </a></li>
-          <li><a href="inear.html">In Ear</a></li>
-          <li><a href="onear.html">On Ear</a></li>
-          <li><a href="overear.html">Over Ear</a></li>
-          <li><a href="kopfhoererlexikon.html">Kopfhörerlexikon</a></li>
-          
-        </ul>
-      </nav>
-    </header>
+<html>
+   <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="images/icon.jpg" sizes="32x32">
+        <title>Bestellhistorie</title> 
+   </head>
+   <body>
+    <div class="body-header" style="background-image: url('./images/home-hintergrund-3.webp');">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top bg-transparent">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="bestellen.html">Jetzt bestellen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="überuns.html">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kontakt.html">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
 
 
@@ -37,15 +47,11 @@
           <div class="card w-100">
             <h5 class="card-header text-center">Neue Rezension anlegen</h5>
             <fieldset id="fieldset" class="card-body">
-                <div class="form-group p-1"><label for="titel">Modellbezeichnung:</label>
-                <input type="text" class="form-control" name="Name" id="Name"></div>
-                <div class="form-group p-1"><label for="Hersteller">Hersteller:</label>
-                <input type="text" class="form-control" name="Hersteller" id="Hersteller" required="required"></div>
-                <div class="form-group p-1"><label for="Datum">Erwerbsdatum:</label>
-                <input type="date" class="form-control" id="Datum" required="required"></div>
-                <div class="form-group p-1"><label for="Qualitaet">Sound-Qualität: <span id="bewertungAnzeige" class="ml-2"></span></label>
-                <input type="range" min="0" max="100" class="form-control" name="Qualitaet" id="Qualitaet"></div>
-                <div class="form-group p-1"><label for="titel">Beschreibung:</label>
+                <div class="form-group p-1"><label for="Modell">Modell:</label>
+                <input type="text" class="form-control" name="Modell" id="Modell"></div>
+                <div class="form-group p-1"><label for="Benutzername">Benutzername:</label>
+                <input type="text" class="form-control" name="Benutzername" id="Benutzername" required="required"></div>
+                <div class="form-group p-1"><label for="Beschreibung">Beschreibung:</label>
                 <textarea class="form-control" name="Beschreibung" id="Beschreibung"></textarea></div>
                 
                 
@@ -76,10 +82,8 @@
             <thead>
               <tr>
                 <td>Id</td>
-                <td>Name</td>
-                <td>Hersteller</td>
-                <td>Erwerbsdatum</td>
-                <td>Qualität</td>
+                <td>Modell</td>
+                <td>Benutzername</td>
                 <td>Beschreibung</td>
                 <td>Aktionen</td>
               </tr>
@@ -94,16 +98,25 @@
     </main>
 
 
-    <footer class="footer" role="contentinfo">
-      <div class="footer">
-        <a href="impressum.html">Impressum</a>
-        |
-        <a href="kontakt.html">Kontakt</a>
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <p>&copy; 2023 Faction Skis. Alle Rechte vorbehalten.</p>
+              </div>
+              <div class="col-md-6">
+                  <button id="btnImpressum" class="link-button" onclick="window.location.href='impressum.html'">Impressum</button>
+                  <button id="btnKontakt" class="link-button" onclick="window.location.href='kontakt.html'">Kontakt</button>
+                  <button id="btnAdmin" class="link-button" onclick="window.location.href='edit.html'">Jetzt bewerten</button>
+              </div>
+          </div>
       </div>
-    </footer>
+  </footer>
 
   </body>
 
+
+<script src="js/script2.js"></script>
 <script src="js/script.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>
