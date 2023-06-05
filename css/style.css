@@ -86,9 +86,13 @@
  }
 
  .footer {
+    position: absolute;
     background-color: #f8f9fa;
     padding: 20px;
     text-align: center;
+    bottom: 0px;
+    width: 100%;
+
 }
 
 .ski {
