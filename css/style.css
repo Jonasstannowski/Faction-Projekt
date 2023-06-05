@@ -96,9 +96,6 @@
 
 .ski {
   display: grid;
-  column-gap: 430px  !important;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
 }
 
 .ski>div {
