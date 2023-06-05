@@ -244,4 +244,6 @@
 
 .row {
   align-items: space-evenly;
+  width: 100%;
+  margin: 0;
 }
