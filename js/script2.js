@@ -12,7 +12,7 @@ function init() {
 }
 
 function tabelleErzeugen(tx) {
-    tx.executeSql("CREATE TABLE IF NOT EXISTS Rezensionen (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Modell VARCHAR (20), Benutzername VARCHAR(45) NOT NULL, Beschreibung TEXT)", [], SQLSuccess, SQLFail);
+    tx.executeSql("CREATE TABLE IF NOT EXISTS Rezensionen (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Modell VARCHAR (20), Benutzername VARCHAR(45) NOT NULL, Beschreibung TEXT)", [], getAllRezensionen, SQLFail);
 }
 
 
