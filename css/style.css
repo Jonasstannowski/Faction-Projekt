@@ -30,6 +30,10 @@
         max-width: 200px;
     }
 
+    .ski{
+      flex-direction: column;
+    }
+
 
 }
 
