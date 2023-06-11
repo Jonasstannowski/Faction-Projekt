@@ -42,8 +42,8 @@ function openDB(){
 }
 
 function updateData() {
-	let Modell = document.getElementById('Modell').value;
-	let Benutzername = document.getElementById('Benutzername').value;
+  let Modell = document.getElementById('Modell').value;
+  let Benutzername = document.getElementById('Hersteller').value;
 	let Beschreibung = document.getElementById('Beschreibung').value;
 	db.transaction(
 		function(tx){
