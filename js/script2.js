@@ -39,7 +39,7 @@ function openDB(){
 }
 
 function dropTable(tx) {
-   tx.executeSql("DROP TABLE IF EXISTS Rezensionenget", [], SQLSuccess, SQLFail);
+   tx.executeSql("DROP TABLE IF EXISTS Rezensionen", [], displayResults, SQLFail);
 }
 
 function addRezensionen(tx) {
@@ -58,7 +58,7 @@ function addRezensionen(tx) {
 
 	tx.executeSql("INSERT INTO Rezensionen (Modell, Benutzername, Beschreibung) VALUES (?,?,?)", [Modell, Benutzername, Beschreibung], getAllRezensionen, SQLFail);
 	clearFields();
-    alert("Rezensionen gespeichert!")
+    alert("Rezension gespeichert!")
 }
 
 

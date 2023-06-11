@@ -26,7 +26,7 @@ function fillForm(tx, result){
 		let data = result.rows.item(0);
 		document.getElementById('Modell').value = data.Modell;
 		document.getElementById('Benutzername').value = data.Benutzername;
-		document.getElementById('Beschreibung').value
+		document.getElementById('Beschreibung').value = data.Beschreibung;
 	}else{
 		alert("ID in der Datenbank unbekannt");
 	}
