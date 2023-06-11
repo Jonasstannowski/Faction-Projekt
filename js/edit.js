@@ -38,7 +38,7 @@ function SQLFail(){
 
 
 function openDB(){
-    db = openDatabase('myDB','1.0','datenbankorientierte Systementwicklung',1024*1024); //DB mit 1MB
+    db = openDatabase('myDB','1.0','Faction Skis',1024*1024); 
 }
 
 function updateData() {

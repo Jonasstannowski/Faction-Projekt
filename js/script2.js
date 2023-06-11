@@ -35,7 +35,7 @@ function deleteStroage() {
 }
 
 function openDB(){
-    db = openDatabase('myDB', '1.0', 'datenbankorientierte Systementwicklung', 1024*1024)
+    db = openDatabase('myDB', '1.0', 'Faction Skis', 1024*1024)
 }
 
 function dropTable(tx) {
