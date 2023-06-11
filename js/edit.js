@@ -11,7 +11,7 @@ function updateBewertungAnzeige() {
 let id;
 
 function init() {
-	document.getElementById("btn_update_data").addEventListener("click", updateData);
+	document.getElementById("btn_save_data").addEventListener("click", updateData);
 	openDB();
 	if(typeof(Storage) != "undefined") {
 		id = parseInt(localStorage.edit);
