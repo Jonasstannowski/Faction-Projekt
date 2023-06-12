@@ -1,72 +1,89 @@
-document.addEventListener("DOMContentLoaded",init);
+document.addEventListener("DOMContentLoaded", init);
 document.getElementById("btn_save_data").addEventListener("click", saveData);
 document.getElementById("btn_delete_db").addEventListener("click", deleteStroage);
 document.getElementById("btn_clear_fields").addEventListener("click", clearFields);
 
 function init() {
-	openDB();
-	console.log(db);
-	db.transaction(tabelleErzeugen);
-	setDefaultDate();
-	db.transaction(getAllRezensionen);
+  openDB();
+  console.log(db);
+  db.transaction(tabelleErzeugen);
+  db.transaction(getAllRezensionen);
 }
 
 function tabelleErzeugen(tx) {
-    tx.executeSql("CREATE TABLE IF NOT EXISTS Rezensionen (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Modell VARCHAR (20), Benutzername VARCHAR(45) NOT NULL, Beschreibung TEXT)", [], getAllRezensionen, SQLFail);
+  tx.executeSql("CREATE TABLE IF NOT EXISTS Rezensionen (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Modell VARCHAR (20), Benutzername VARCHAR(45) NOT NULL, Beschreibung TEXT)", [], getAllRezensionen, SQLFail);
 }
 
 
 function saveData() {
-	db.transaction(addRezensionen);
+  db.transaction(addRezensionen);
 
 }
 
-function SQLSuccess(){
-    console.log("Success");
-	clearFields();
+document.addEventListener('click', function (e) {
+  if (e.target && e.target.dataset.action == 'edit') {
+    localStorage.edit = e.target.dataset.id;
+  }
+  if (e.target && e.target.dataset.action == 'delete') {
+    let edit_id = parseInt(e.target.dataset.id);
+    deleteItem(edit_id);
+  }
+});
+
+function SQLSuccess() {
+  console.log("Success");
+  clearFields();
 }
 
-function SQLFail(){
-    console.log("Fail");
+function SQLFail() {
+  console.log("Fail");
 }
 
 function deleteStroage() {
-	db.transaction(dropTable);
+  db.transaction(dropTable);
 }
 
-function openDB(){
-    db = openDatabase('myDB', '1.0', 'Faction Skis', 1024*1024)
+function deleteItem(id) {
+  db.transaction(
+    function (tx) {
+      tx.executeSql("DELETE FROM Bewertungen WHERE id=?", [id], getAllRezensionen, SQLFail);
+    }
+  );
+}
+
+function openDB() {
+  db = openDatabase('myDB', '1.0', 'Faction Skis', 1024 * 1024)
 }
 
 function dropTable(tx) {
-   tx.executeSql("DROP TABLE IF EXISTS Rezensionen", [], displayResults, SQLFail);
+  tx.executeSql("DROP TABLE IF EXISTS Rezensionen", [], displayResults, SQLFail);
 }
 
 function addRezensionen(tx) {
-	let ModellInput = document.getElementById("Modell");
-    let BenutzernameInput = document.getElementById( "Benutzername");
-    let Modell = ModellInput.value;
-    let Benutzername = BenutzernameInput.value;
-	  let Beschreibung = document.getElementById("Beschreibung").value;
+  let ModellInput = document.getElementById("Modell");
+  let BenutzernameInput = document.getElementById("Benutzername");
+  let Modell = ModellInput.value;
+  let Benutzername = BenutzernameInput.value;
+  let Beschreibung = document.getElementById("Beschreibung").value;
 
-    if (Modell === "" || Benutzername === "") {
-        alert("Bitte füllen Sie alle Pflichtfelder aus.");
-        ModellInput.classList.add("is-invalid");
-       BenutzernameInput.classList.add("is-invalid");
-        return;
-	}
+  if (Modell === "" || Benutzername === "") {
+    alert("Bitte füllen Sie alle Pflichtfelder aus.");
+    ModellInput.classList.add("is-invalid");
+    BenutzernameInput.classList.add("is-invalid");
+    return;
+  }
 
-	tx.executeSql("INSERT INTO Rezensionen (Modell, Benutzername, Beschreibung) VALUES (?,?,?)", [Modell, Benutzername, Beschreibung], getAllRezensionen, SQLFail);
-	clearFields();
-    alert("Rezension gespeichert!")
+  tx.executeSql("INSERT INTO Rezensionen (Modell, Benutzername, Beschreibung) VALUES (?,?,?)", [Modell, Benutzername, Beschreibung], getAllRezensionen, SQLFail);
+  clearFields();
+  alert("Rezension gespeichert!")
 }
 
 
-function getAllRezensionen(tx){
-	tx.executeSql("SELECT * FROM Rezensionen", [], displayResults, SQLFail);
+function getAllRezensionen(tx) {
+  tx.executeSql("SELECT * FROM Rezensionen", [], displayResults, SQLFail);
 }
 
-function displayResults(tx, results){
+function displayResults(tx, results) {
   console.log(results);
 
   let html = document.getElementById('table-content');
@@ -120,7 +137,7 @@ function displayResults(tx, results){
 }
 
 function clearFields() {
-	document.getElementById("Modell").value = "";
-	document.getElementById("Benutzername").value = "";
-	document.getElementById("Beschreibung").value = "";
+  document.getElementById("Modell").value = "";
+  document.getElementById("Benutzername").value = "";
+  document.getElementById("Beschreibung").value = "";
 }
