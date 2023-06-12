@@ -34,7 +34,9 @@
       flex-direction: column;
     }
 
-
+    .container>.text-center{
+      font-size: small;
+    }
 }
 
 .logo{
